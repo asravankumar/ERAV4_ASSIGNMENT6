@@ -21,7 +21,7 @@ The task is to build and train models for the MNIST digit classification dataset
     - Best Training Accuracy under 15 epochs: 99.22%
     - Best Testing Accuracy under 15 epochs: 98.80%
  - **Training Logs**:
-<pre style="font-size:6px;">
+<pre style="font-size:4px;">
 EPOCH: 0
 Loss=0.3600336015224457 Batch_id=468 Accuracy=33.99: 100%|██████████| 469/469 [00:13<00:00, 34.37it/s]
 Test set: Average loss: 0.3240, Accuracy: 9017/10000 (90.17%)
@@ -97,7 +97,7 @@ Test set: Average loss: 0.0413, Accuracy: 9880/10000 (98.80%)
     - Best Training Accuracy under 15 epochs: 99.01%
     - Best Testing Accuracy under 15 epochs: 99.32%
  - **Training Logs**:
-<pre style="font-size:6px;">
+<pre style="font-size:4px;">
 EPOCH: 0
 Loss=0.1843942403793335 Batch_id=468 Accuracy=77.96: 100%|██████████| 469/469 [00:13<00:00, 35.48it/s]
 Test set: Average loss: 0.1667, Accuracy: 9637/10000 (96.37%)
@@ -172,9 +172,9 @@ Test set: Average loss: 0.0255, Accuracy: 9910/10000 (99.10%)
  - **Target**:
     - Achieve at least 99.40% testing accuracy consistently for few epochs under 8k parameters.
  - **Result**:
-    - Able to achieve the desired output with 6136 parameters.
+    - Able to achieve the desired output with **6136** parameters.
  - **Training Logs**:
-<pre style="font-size:6px;">
+<pre style="font-size:4px;">
 EPOCH: 0
 Loss=0.12491422891616821 Batch_id=468 Accuracy=86.49: 100%|██████████| 469/469 [00:24<00:00, 19.35it/s]
 Test set: Average loss: 0.0656, Accuracy: 9808/10000 (98.08%)
@@ -236,8 +236,20 @@ Loss=0.03961181640625 Batch_id=468 Accuracy=98.60: 100%|████████
 Test set: Average loss: 0.0190, Accuracy: 9940/10000 (99.40%)
 </pre>
  - **Analysis**:
-    - Adding Image augmentation techniques has definitely improved the testing accuracy.
+    - Adding Image augmentation techniques to the previous model with slight changes in the network has definitely improved the testing accuracy.
     - Had played with different learning rates for SGD and finally with StepLR and step_size of 6, was able to achieve the desired result.
+    - Was able to achieve >= 99.40% testing accuracy consistently from epoch 9.
  - **File Link**:
 
 ---
+
+## Conclusion
+
+```
+Step-by-step iterative experimentation was performed.
+ - Starting from skeleton to a basic minimal model with ~10k parameters.
+ - Then by batch normalization we could converge faster and by adding regularization we address overfitting. But the testing accuracies needed to improve.
+ - By adding image augmentation techniques and playing with the learning rates, we could achieve the following best model with desired output.
+    - 6,136  parameters.
+    - >= 99.40$ testing accuracies from 9th epoch. 
+```
