@@ -87,7 +87,7 @@ Test set: Average loss: 0.0413, Accuracy: 9880/10000 (98.80%)
     - Inefficient use of final layers. Use of **Global Average Pooling** would definitely reduce the number of parameters drastically.
     - Post 5-6 epochs, the model starts over-fitting. We definitely need to add regularization to address this.
  - **File Link**:
-
+    - [Model1 File Link](model1.py)
 ---
 ### Model2
  - **Target**:
@@ -166,7 +166,7 @@ Test set: Average loss: 0.0255, Accuracy: 9910/10000 (99.10%)
     - But this model falls short of required testing accuracies. Perhaps, we need to play with add augmentation to improve the testing accuracy.
     - At the same time, we also need to tune the model with different Learning Rates.
  - **File Link**:
-
+    - [Model2 File Link](model2.py)
 ---
 ### Model3
  - **Target**:
@@ -240,16 +240,15 @@ Test set: Average loss: 0.0190, Accuracy: 9940/10000 (99.40%)
     - Had played with different learning rates for SGD and finally with StepLR and step_size of 6, was able to achieve the desired result.
     - Was able to achieve >= 99.40% testing accuracy consistently from epoch 9.
  - **File Link**:
-
+    - [Model3 File Link](model3.py)
 ---
 
 ## Conclusion
 
-```
+
 Step-by-step iterative experimentation was performed.
  - Starting from skeleton to a basic minimal model with ~10k parameters.
  - Then by batch normalization we could converge faster and by adding regularization we address overfitting. But the testing accuracies needed to improve.
  - By adding image augmentation techniques and playing with the learning rates, we could achieve the following best model with desired output.
     - 6,136  parameters.
     - >= 99.40$ testing accuracies from 9th epoch. 
-```
