@@ -1,3 +1,14 @@
+"""
+ - Target:
+    - Achieve at least 99.40% testing accuracy consistently for few epochs under 8k parameters.
+ - Result:
+    - Able to achieve the desired output with **6136** parameters.
+ - Analysis:
+    - Adding Image augmentation techniques to the previous model with slight changes in the network has definitely improved the testing accuracy.
+    - Had played with different learning rates for SGD and finally with StepLR and step_size of 6, was able to achieve the desired result.
+    - Was able to achieve >= 99.40% testing accuracy consistently from epoch 9.
+"""
+
 import torch.nn as nn
 import torch.nn.functional as F
 

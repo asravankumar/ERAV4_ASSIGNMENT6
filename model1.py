@@ -1,3 +1,17 @@
+"""
+- Target:
+    - Getting Setup Right - Data Loaders, Data Sets, Training, Testing, Training Logs. 
+    - Define Model with < 100k parameters with decent training and testing accuracies.
+ - Result:
+    - Got a model with 10790 parameters.
+    - Best Training Accuracy under 15 epochs: 99.22%
+    - Best Testing Accuracy under 15 epochs: 98.80%
+ - Analysis:
+    - Even though the model achives 98.80% testing accuracy by epoch 14, but it requires a high number of epochs. Adding **Batch Normalization** would stabilize the training, allowing to hit ~99% much faster.
+    - Inefficient use of final layers. Use of **Global Average Pooling** would definitely reduce the number of parameters drastically.
+    - Post 5-6 epochs, the model starts over-fitting. We definitely need to add regularization to address this.
+"""
+
 import torch.nn as nn
 import torch.nn.functional as F
 

@@ -1,3 +1,18 @@
+"""
+ - Target:
+    - Address Overfitting, late convergence with lesser number of parameters.
+ - Result:
+    - Was able to achieve > 99% testing accuracy on all epochs greater than 10 with less than 8k parameters. But falls short of the required 99.4% accuracy.
+    - Best Training Accuracy under 15 epochs: 99.01%
+    - Best Testing Accuracy under 15 epochs: 99.32%
+ - Analysis:
+    - Use of Batch Normalization has converged both the training and testing accuracies in lesser number of epochs there by drastically helping in converging faster for the required accuracies in less than 15 epochs.
+    - As the model started overfitting after few epochs in previous iteration, using a dropout of 0.05 on all layers contributed immensely. It provided the necessary regularization there by slightly reducing the training accuracies.
+    - By replacing the last convolution layer with GAP has drastically reduced the overall number of parameters and at the same time preserving the overall model performance.
+    - But this model falls short of required testing accuracies. Perhaps, we need to play by adding augmentation to improve the testing accuracies.
+    - At the same time, we also need to tune the model with different Learning Rates.
+"""
+
 import torch.nn as nn
 import torch.nn.functional as F
 
