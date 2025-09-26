@@ -160,10 +160,10 @@ Test set: Average loss: 0.0255, Accuracy: 9910/10000 (99.10%)
 </pre>
 
  - **Analysis**:
-    - Use of Batch Normalization has converged both the training and testing accuracies in lesser number of epochs.
-    - After using a dropout of 0.05 on all layers, we addressed overfitting. It provided the necessary regularization there by reducing the overfitting.
-    - By replacing the last convolution layer with GAP has drastically reduced the overall number of parameters and at the same time improving the overall model performance.
-    - But this model falls short of required testing accuracies. Perhaps, we need to play with add augmentation to improve the testing accuracy.
+    - Use of Batch Normalization has converged both the training and testing accuracies in lesser number of epochs there by drastically helping in converging faster for the required accuracies in less than 15 epochs.
+    - As the model started overfitting after few epochs in previous iteration, using a dropout of 0.05 on all layers contributed immensely. It provided the necessary regularization there by slightly reducing the training accuracies.
+    - By replacing the last convolution layer with GAP has drastically reduced the overall number of parameters and at the same time preserving the overall model performance.
+    - But this model falls short of required testing accuracies. Perhaps, we need to play by adding augmentation to improve the testing accuracies.
     - At the same time, we also need to tune the model with different Learning Rates.
  - **File Link**:
     - [Model2 File Link](model2.py)
@@ -245,10 +245,54 @@ Test set: Average loss: 0.0190, Accuracy: 9940/10000 (99.40%)
 
 ## Conclusion
 
-
-Step-by-step iterative experimentation was performed.
+Step-by-step iterative experimentation was performed to achieve the desired model.
  - Starting from skeleton to a basic minimal model with ~10k parameters.
  - Then by batch normalization we could converge faster and by adding regularization we address overfitting. But the testing accuracies needed to improve.
  - By adding image augmentation techniques and playing with the learning rates, we could achieve the following best model with desired output.
     - 6,136  parameters.
-    - \>= 99.40% testing accuracies from 9th epoch. 
+    - \>= 99.40% testing accuracies from 9th epoch.
+
+### Best Model Architecture
+
+Summary of the model
+
+```
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1            [-1, 8, 26, 26]              72
+       BatchNorm2d-2            [-1, 8, 26, 26]              16
+              ReLU-3            [-1, 8, 26, 26]               0
+           Dropout-4            [-1, 8, 26, 26]               0
+            Conv2d-5           [-1, 16, 24, 24]           1,152
+       BatchNorm2d-6           [-1, 16, 24, 24]              32
+              ReLU-7           [-1, 16, 24, 24]               0
+           Dropout-8           [-1, 16, 24, 24]               0
+         MaxPool2d-9           [-1, 16, 12, 12]               0
+           Conv2d-10            [-1, 8, 12, 12]             128
+      BatchNorm2d-11            [-1, 8, 12, 12]              16
+             ReLU-12            [-1, 8, 12, 12]               0
+           Conv2d-13            [-1, 8, 10, 10]             576
+      BatchNorm2d-14            [-1, 8, 10, 10]              16
+             ReLU-15            [-1, 8, 10, 10]               0
+          Dropout-16            [-1, 8, 10, 10]               0
+           Conv2d-17             [-1, 12, 8, 8]             864
+      BatchNorm2d-18             [-1, 12, 8, 8]              24
+             ReLU-19             [-1, 12, 8, 8]               0
+          Dropout-20             [-1, 12, 8, 8]               0
+           Conv2d-21             [-1, 12, 6, 6]           1,296
+      BatchNorm2d-22             [-1, 12, 6, 6]              24
+             ReLU-23             [-1, 12, 6, 6]               0
+          Dropout-24             [-1, 12, 6, 6]               0
+           Conv2d-25             [-1, 16, 4, 4]           1,728
+      BatchNorm2d-26             [-1, 16, 4, 4]              32
+             ReLU-27             [-1, 16, 4, 4]               0
+          Dropout-28             [-1, 16, 4, 4]               0
+        AvgPool2d-29             [-1, 16, 1, 1]               0
+           Conv2d-30             [-1, 10, 1, 1]             160
+================================================================
+Total params: 6,136
+Trainable params: 6,136
+Non-trainable params: 0
+----------------------------------------------------------------
+```
