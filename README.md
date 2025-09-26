@@ -21,7 +21,7 @@ The task is to build and train models for the MNIST digit classification dataset
     - Best Training Accuracy under 15 epochs: 99.22%
     - Best Testing Accuracy under 15 epochs: 98.80%
  - **Training Logs**:
-```
+<pre style="font-size:10px;">
 EPOCH: 0
 Loss=0.3600336015224457 Batch_id=468 Accuracy=33.99: 100%|██████████| 469/469 [00:13<00:00, 34.37it/s]
 Test set: Average loss: 0.3240, Accuracy: 9017/10000 (90.17%)
@@ -81,7 +81,7 @@ Test set: Average loss: 0.0443, Accuracy: 9870/10000 (98.70%)
 EPOCH: 14
 Loss=0.026263413950800896 Batch_id=468 Accuracy=99.22: 100%|██████████| 469/469 [00:13<00:00, 34.48it/s]
 Test set: Average loss: 0.0413, Accuracy: 9880/10000 (98.80%)
-```
+</pre>
  - **Analysis**:
     - Even though the model achives 98.80% testing accuracy by epoch 14, but it requires a high number of epochs. Adding **Batch Normalization** would stabilize the training, allowing to hit ~99% much faster.
     - Inefficient use of final layers. Use of **Global Average Pooling** would definitely reduce the number of parameters drastically.
