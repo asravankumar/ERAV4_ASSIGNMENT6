@@ -251,4 +251,4 @@ Step-by-step iterative experimentation was performed.
  - Then by batch normalization we could converge faster and by adding regularization we address overfitting. But the testing accuracies needed to improve.
  - By adding image augmentation techniques and playing with the learning rates, we could achieve the following best model with desired output.
     - 6,136  parameters.
-    - >= 99.40$ testing accuracies from 9th epoch. 
+    - \>= 99.40% testing accuracies from 9th epoch. 
